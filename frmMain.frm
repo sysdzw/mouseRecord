@@ -10,14 +10,33 @@ Begin VB.Form frmMain
    ScaleHeight     =   7200
    ScaleWidth      =   12225
    StartUpPosition =   2  '屏幕中心
+   Begin VB.TextBox Text2 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Arial Narrow"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   8280
+      TabIndex        =   8
+      Text            =   "20"
+      Top             =   157
+      Width           =   495
+   End
    Begin VB.CheckBox Check1 
-      Caption         =   "使用画图工具"
+      Caption         =   "使用画图工具 播放间隔:"
       Height          =   255
       Left            =   6000
       TabIndex        =   7
       Top             =   240
       Value           =   1  'Checked
-      Width           =   1575
+      Width           =   2535
    End
    Begin VB.TextBox Text1 
       Alignment       =   2  'Center
@@ -79,6 +98,15 @@ Begin VB.Form frmMain
       TabIndex        =   2
       Top             =   120
       Width           =   1815
+   End
+   Begin VB.Label Label3 
+      AutoSize        =   -1  'True
+      Caption         =   "毫秒"
+      Height          =   180
+      Left            =   8880
+      TabIndex        =   9
+      Top             =   277
+      Width           =   360
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
@@ -144,7 +172,7 @@ Private Sub cmdDone_Click()
     End If
     
     w.Wait 1000
-    w.DragToEx txtRecordContent.Text
+    w.DragToEx txtRecordContent.Text, , Text2.Text, Text2.Text
 End Sub
 '记录鼠标拖动
 Private Sub tmrRecord_Timer()
